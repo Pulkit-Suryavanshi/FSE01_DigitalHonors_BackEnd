@@ -15,8 +15,9 @@ namespace com.tweetapp.Utilities
         }
         public static bool Email(string email)
         {
-            string pattern = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
-            return Regex.IsMatch(email, pattern);
+            string pattern = "^\\S+@\\S+\\.\\S+$";
+            bool resultMatchMail = Regex.IsMatch(email,pattern);
+            return resultMatchMail;
         }
         public static bool UserName(string userName)
         {
@@ -25,8 +26,9 @@ namespace com.tweetapp.Utilities
         }
         public static bool Password(string password)
         {
-            string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$";
-            return Regex.IsMatch(password, pattern);
+            string pattern = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
+            bool resultMatchPassword = Regex.IsMatch(password, pattern);
+            return resultMatchPassword;
         }
         public static string PasswordErrorMessage()
         {
